@@ -43,14 +43,17 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+// Write your code here
 // 1. Select Title Element
-const bookStoreTitle = document.getElementById('header');
+const bookStoreTitle = document.querySelector('#header');
 
 // 2. Change element to match bookstore name
 bookStoreTitle.textContent = bookStore.name;
 
-// Loop through every book element in bookStore.books
+// Select the book list container
+const bookList = document.querySelector('#book-list');
+
+// Loop through every book object in bookStore.books
 for (const book of bookStore.books) {
   // Step 1: Create elements for each book
   const bookContainer = document.createElement('li');
@@ -58,13 +61,12 @@ for (const book of bookStore.books) {
   const bookAuthor = document.createElement('p');
   const bookImage = document.createElement('img');
 
-  // Step 2: Change textContent and properties to match book object
+  // Step 2: Set content to match book object properties
   bookTitle.textContent = book.title;
   bookAuthor.textContent = book.author;
-  bookImage.src = book.image; // or book.imageUrl depending on your data model
+  bookImage.src = book.imageUrl;
 
-  // Step 3: Append book elements to bookList
-  // Append child elements to the container
+  // Step 3: Append book elements to bookContainer
   bookContainer.appendChild(bookTitle);
   bookContainer.appendChild(bookAuthor);
   bookContainer.appendChild(bookImage);
